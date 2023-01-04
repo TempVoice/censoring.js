@@ -5,7 +5,7 @@
     "unidecode": "^0.1.8",
     "unorm": "^1.6.0"
   },
-  "name": "censor.js",
+  "name": "censoring.js",
   "version": "0.0.1",
   "description": "Censor bad words in a string and replace the words with an symbol",
   "main": "index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TempVoice/censor.js.git"
+    "url": "git+https://github.com/TempVoice/censoring.js.git"
   },
   "keywords": [
     "censor"
@@ -23,7 +23,7 @@
   "author": "EXCORDO",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TempVoice/censor.js/issues"
+    "url": "https://github.com/TempVoice/censoring.js/issues"
   },
-  "homepage": "https://github.com/TempVoice/censor.js#readme"
+  "homepage": "https://github.com/TempVoice/censoring.js#readme"
 }
