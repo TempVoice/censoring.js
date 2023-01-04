@@ -3,8 +3,8 @@ const removeAccents = require('remove-accents');
 const latinize = require('latinize');
 const unidecode = require('unidecode');
 
-export const censor = {
-    add : function censor(string, array, replacement) {
+module.exports = {
+    censor: (string, array, replacement) => {
         let list = array.map(w => w.toLowerCase());
         let censor = string.split(' ');
         
@@ -25,6 +25,8 @@ export const censor = {
             word = word.replaceAll(';', '')
             word = word.replaceAll('_', '')
             word = word.replaceAll('-', '')
+            word = word.replaceAll('!', '')
+            word = word.replaceAll('?', '')
         
             if (list.includes(word)) {
                 censor[i] = replacement.repeat(word.length)

@@ -6,7 +6,7 @@
     "unorm": "^1.6.0"
   },
   "name": "censoring.js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Censor bad words in a string and replace the words with an symbol",
   "main": "index.js",
   "devDependencies": {},
