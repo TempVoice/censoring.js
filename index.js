@@ -23,5 +23,25 @@ module.exports = {
         }
     
         return originalArray.join(" ")
+    },
+    check: (originalString, array) => {
+        const preparedArray = array.map(w => w.toLowerCase());
+        const replacements = { '0': 'o', '9': 'g', '7': 't', '5': 's', '4': 'a', '3': 'e', '1': 'i' };
+        const regex = new RegExp(Object.keys(replacements).join('|'), 'g');
+    
+        let checkString = unidecode(unorm(latinize(removeAccents(originalString.toLowerCase())))).replace(/\[\?\]/g, '') || 'gibberish';
+        checkString = checkString.replace(regex, char => replacements[char]);
+        checkString = checkString.replace(/,|\.|:|;|_|-|\+|\*|'|`|!|\?/g, '')
+    
+        let originalArray = originalString.split(' ');
+        let checkArray = checkString.split(' ');
+    
+        for (let i = 0; i < originalArray.length; i++) {
+            if (preparedArray.includes(checkArray[i])) {
+                return true
+            }
+        }
+    
+        return false
     }
 }

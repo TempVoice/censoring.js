@@ -6,7 +6,7 @@
     "unorm": "^1.6.0"
   },
   "name": "censoring.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This package is able to filter words of a string and avoid common bypass methods like using different fonts or symboles between the words.",
   "main": "index.js",
   "devDependencies": {},
