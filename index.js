@@ -4,35 +4,24 @@ const latinize = require('latinize');
 const unidecode = require('unidecode');
 
 module.exports = {
-    censor: (string, array, replacement) => {
-        let list = array.map(w => w.toLowerCase());
-        let censor = string.split(' ');
-        
-        for (let i = 0; i < censor.length; i++) {
-            let word = unidecode(unorm(latinize(removeAccents(censor[i].toLowerCase())))).replace(/\[\?\]/g, '') || 'gibberish';
-            
-            word = word.replaceAll('0', 'o')
-            word = word.replaceAll('9', 'g')
-            word = word.replaceAll('7', 't')
-            word = word.replaceAll('5', 's')
-            word = word.replaceAll('4', 'a')
-            word = word.replaceAll('3', 'e')
-            word = word.replaceAll('1', 'i')
-        
-            word = word.replaceAll(',', '')
-            word = word.replaceAll('.', '')
-            word = word.replaceAll(':', '')
-            word = word.replaceAll(';', '')
-            word = word.replaceAll('_', '')
-            word = word.replaceAll('-', '')
-            word = word.replaceAll('!', '')
-            word = word.replaceAll('?', '')
-        
-            if (list.includes(word)) {
-                censor[i] = replacement.repeat(word.length)
+    censor: (originalString, array, replacement) => {
+        const preparedArray = array.map(w => w.toLowerCase());
+        const replacements = { '0': 'o', '9': 'g', '7': 't', '5': 's', '4': 'a', '3': 'e', '1': 'i' };
+        const regex = new RegExp(Object.keys(replacements).join('|'), 'g');
+    
+        let checkString = unidecode(unorm(latinize(removeAccents(originalString.toLowerCase())))).replace(/\[\?\]/g, '') || 'gibberish';
+        checkString = checkString.replace(regex, char => replacements[char]);
+        checkString = checkString.replace(/,|\.|:|;|_|-|\+|\*|'|`|!|\?/g, '')
+    
+        let originalArray = originalString.split(' ');
+        let checkArray = checkString.split(' ');
+    
+        for (let i = 0; i < originalArray.length; i++) {
+            if (preparedArray.includes(checkArray[i])) {
+                originalArray[i] = replacement.repeat(checkArray[i].length)
             }
         }
     
-        return censor.join(" ")
+        return originalArray.join(" ")
     }
 }

@@ -6,8 +6,8 @@
     "unorm": "^1.6.0"
   },
   "name": "censoring.js",
-  "version": "0.0.4",
-  "description": "Censor bad words in a string and replace the words with an symbol",
+  "version": "0.1.0",
+  "description": "This package is able to filter words of a string and avoid common bypass methods like using different fonts or symboles between the words.",
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
@@ -18,10 +18,10 @@
     "url": "git+https://github.com/TempVoice/censoring.js.git"
   },
   "keywords": [
-    "censor"
+    "censor", "bad words", "profanity", "filter", "insults", "bypass"
   ],
   "author": "EXCORDO",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/TempVoice/censoring.js/issues"
   },
