@@ -22,11 +22,11 @@ console.log(censored) // I dont like **** **** are **** and attacking me all the
 
 ## Check
 ```js
-const { check } = require("censoring.js")
+const { censorable } = require("censoring.js")
 
 const string = "I dont like cats.."
 const array = ["cats"]
 
-const censorable = check(string, array)
+const check = censorable(string, array)
 console.log(censorable) // true
 ```

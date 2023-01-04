@@ -24,7 +24,7 @@ module.exports = {
     
         return originalArray.join(" ")
     },
-    check: (originalString, array) => {
+    censorable: (originalString, array) => {
         const preparedArray = array.map(w => w.toLowerCase());
         const replacements = { '0': 'o', '9': 'g', '7': 't', '5': 's', '4': 'a', '3': 'e', '1': 'i' };
         const regex = new RegExp(Object.keys(replacements).join('|'), 'g');
