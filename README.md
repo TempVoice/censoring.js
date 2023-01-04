@@ -20,3 +20,13 @@ const censored = censor(string, array, replacement)
 console.log(censored) // I dont like **** **** are **** and attacking me all the time! I **** them..
 ```
 
+## Check
+```js
+const { check } = require("censoring.js")
+
+const string = "I dont like cats.."
+const array = ["cats"]
+
+const censorable = check(string, array)
+console.log(censorable) // true
+```
